@@ -3,15 +3,15 @@
 function inserir($pdo,$venda)
 {
     try{
-    $sql = "INSERT INTO vendas (sku, forma_pagamento, preco, quantidade, data) 
-        VALUES (:sku, :forma_pagamento, :preco, :quantidade, :data)";
+    $sql = "INSERT INTO vendido (sku, forma_pagamento, preco, quantidade, data_vendido) 
+        VALUES (:sku, :forma_pagamento, :preco, :quantidade, :data_vendido)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
         ':sku' => $venda->sku,
         ':forma_pagamento' => $venda->forma_pagamento,
         ':preco' => $venda->preco,
         ':quantidade' => $venda->quantidade,
-        ':data' => $venda->data
+        ':data_vendido' => $venda->data
     ]);
     }
     catch(PDOException $e){
