@@ -1,0 +1,1 @@
+Estou fazendo esse projeto, porque no meu trabalho necessita de um controle de estoque e registro de vendas, ai por causa disso estou fazendo esse sistema.
