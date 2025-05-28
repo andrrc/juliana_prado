@@ -3,7 +3,6 @@
 namespace Andrefilho\JulianaPrado\Repository;
 
 use Andrefilho\JulianaPrado\Models\ProdutoModel;
-use Andrefilho\JulianaPrado\Models\DatabaseModel;
 use \PDO;
 
 class ProdutoRepository
@@ -55,4 +54,5 @@ class ProdutoRepository
         }
         return null;
     }
+    
 }

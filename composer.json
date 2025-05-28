@@ -1,0 +1,15 @@
+{
+    "name": "andrefilho/juliana_prado",
+    "autoload": {
+        "psr-4": {
+            "Andrefilho\\JulianaPrado\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "andrrc",
+            "email": "andrevieiracvf@gmail.com"
+        }
+    ],
+    "require": {}
+}

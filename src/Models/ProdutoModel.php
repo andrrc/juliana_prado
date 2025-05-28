@@ -105,7 +105,7 @@ class ProdutoModel{
     public function baixarEstoque(int $quantidade): void
     {
         if (!$this->podeVender(quantidade: $quantidade)) {
-            throw new \Exception("Estoque insuficiente");
+            throw new Exception("Estoque insuficiente");
         }
         $this->estoque_atual -= $quantidade;
     }

@@ -1,7 +1,6 @@
 <?php
 namespace Andrefilho\JulianaPrado\Repository;
 use Andrefilho\JulianaPrado\Models\VendaModel;
-use Andrefilho\JulianaPrado\Models\DatabaseModel;
 use PDO;
 class VendaRepository {
     private PDO $pdo;
@@ -12,18 +11,25 @@ class VendaRepository {
 
     // Salvar uma venda no banco
     public function salvar_venda(VendaModel $venda): bool {
-        $sql = "INSERT INTO vendas (sku, forma_pagamento, preco, quantidade, data) 
-                VALUES (:sku, :forma_pagamento, :preco, :quantidade, :data)";
+    $sql = "INSERT INTO vendido(sku, forma_pagamento, preco, quantidade, data_vendido) 
+            VALUES (:sku, :forma_pagamento, :preco, :quantidade, :data_vendido)";
 
-        $stmt = $this->pdo->prepare(query: $sql);
-        return $stmt->execute(params: [
-            'sku' => $venda->getSku(),
-            'forma_pagamento' => $venda->getFormaPagamento(),
-            'preco' => $venda->getPreco(),
-            'quantidade' => $venda->getQuantidade(),
-            'data' => $venda->getData(),
-        ]);
+    $stmt = $this->pdo->prepare($sql);
+    $resultado = $stmt->execute([
+        'sku' => $venda->getSku(),
+        'forma_pagamento' => $venda->getFormaPagamento(),
+        'preco' => $venda->getPreco(),
+        'quantidade' => $venda->getQuantidade(),
+        'data_vendido' => $venda->getData(),
+    ]);
+
+    if (!$resultado) {
+        print_r($stmt->errorInfo()); // <-- mostra o motivo da falha
     }
+
+    return $resultado;
+}
+
 
     // Buscar vendas por SKU
     public function buscarPorSku(int $sku): array {
