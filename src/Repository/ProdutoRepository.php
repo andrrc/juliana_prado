@@ -23,6 +23,25 @@ class ProdutoRepository
             ':sku' => $produto->getSku()
         ]);
     }
+    public function listarProdutos(): array
+    {
+        $sql = "SELECT * FROM estoque";
+        $stmt = $this->pdo->query($sql);
+        $produtos = [];
+        
+        while ($row = $stmt->fetch()) {
+            $produtos[] = new ProdutoModel(
+                sku: $row['sku'],
+                produto: $row['produto'],
+                tamanho: $row['tamanho'],
+                preco: $row['preco'],
+                estoque_atual: $row['estoque_atual'],
+                tipo: $row['tipo']
+            );
+        }
+        
+        return $produtos;
+    }
     public function cadastrar(ProdutoModel $produto): bool
     {
         $sql = "INSERT INTO estoque(sku,produto,tamanho,preco,estoque_atual,tipo) VALUES (:sku,:produto,:tamanho,:preco,:estoque_atual,:tipo)";

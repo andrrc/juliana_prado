@@ -1,1 +1,2 @@
 Estou fazendo esse projeto, porque no meu trabalho necessita de um controle de estoque e registro de vendas, ai por causa disso estou fazendo esse sistema.
+28/05/2025 Finalizamos com a venda do juliana prado, acredito eu, não é 100% certeza, pórem irei continuar com o projeto.
